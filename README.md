@@ -6,8 +6,8 @@ Aplikasi ini adalah aplikasi kuis yang dibuat menggunakan Flutter. Aplikasi ini 
 ## Pembuat Aplikasi
 Aplikasi ini dibuat oleh:
 
-- **2308224**: DATUK DANESWARA RADITYA SAMSURA (@codewara)
-- **2311474**: HAFSAH HAMIDAH (@hafsahha)
+- **2308224**: DATUK DANESWARA RADITYA SAMSURA [@codewara](https://github.com/codewara)
+- **2311474**: HAFSAH HAMIDAH [@hafsahha](https://github.com/hafsahha)
 
 ## Teknologi yang Digunakan
 - **Flutter**: Framework yang digunakan untuk membangun aplikasi mobile ini.
