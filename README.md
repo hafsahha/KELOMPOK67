@@ -10,21 +10,38 @@ Aplikasi ini dibuat oleh:
 - **2311474**: HAFSAH HAMIDAH [@hafsahha](https://github.com/hafsahha)
 
 ## Teknologi yang Digunakan
+Aplikasi ini dibangun menggunakan teknologi berikut:
+
 - **Flutter**: Framework untuk membangun aplikasi mobile yang digunakan dalam pengembangan aplikasi ini.
 - **Dart**: Bahasa pemrograman yang digunakan untuk membangun aplikasi ini.
-- **Firebase** (opsional untuk implementasi notifikasi atau chat): Untuk kebutuhan seperti chat dan penyimpanan data.
+- **Figma**: Desain awal aplikasi dibuat menggunakan Figma untuk merancang tampilan dan pengalaman pengguna.
 
 ## Fitur Aplikasi
-Aplikasi ini memiliki berbagai fitur untuk memfasilitasi kebutuhan pengguna dalam menyewa alat perkemahan:
+Aplikasi ini memiliki berbagai fitur untuk memfasilitasi kebutuhan pengguna dalam menyewa alat perkemahan, termasuk:
 
-- **Halaman Depan**: Menampilkan daftar kategori alat perkemahan yang dapat disewa.
-- **Detail Item**: Menampilkan informasi lengkap mengenai peralatan yang disewakan, termasuk harga, ketersediaan, dan deskripsi.
-- **Review dan Rating**: Pengguna dapat melihat rating dan ulasan dari penyewa sebelumnya serta memberikan review mereka sendiri.
-- **Chat dengan Admin**: Fitur chat untuk berkomunikasi dengan admin, terutama bagi pengguna yang baru pertama kali berkemah dan membutuhkan informasi tambahan.
-- **Daftar Wishlist**: Pengguna dapat menyimpan peralatan pilihan mereka ke dalam wishlist.
-- **Keranjang dan Checkout**: Menambahkan alat ke keranjang, melihat total harga, dan melanjutkan ke halaman pembayaran.
-- **Paket Hemat dan Promosi**: Menampilkan berbagai paket promosi atau diskon untuk penyewaan peralatan kemah.
-- **Daftar Transaksi**: Menampilkan riwayat transaksi, termasuk status order dan pengembalian peralatan yang telah disewa.
+1. **Halaman Depan**: Menampilkan daftar kategori alat perkemahan yang dapat disewa.
+2. **Detail Item**: Menampilkan informasi lengkap mengenai peralatan yang disewakan, termasuk harga, ketersediaan, dan deskripsi.
+3. **Review dan Rating**: Pengguna dapat melihat rating dan ulasan dari penyewa sebelumnya serta memberikan review mereka sendiri.
+4. **Chat dengan Admin**: Fitur chat untuk berkomunikasi dengan admin, terutama bagi pengguna yang baru pertama kali berkemah dan membutuhkan informasi tambahan.
+5. **Daftar Wishlist**: Pengguna dapat menyimpan peralatan pilihan mereka ke dalam wishlist.
+6. **Keranjang dan Checkout**: Menambahkan alat ke keranjang, melihat total harga, dan melanjutkan ke halaman pembayaran.
+7. **Paket Hemat dan Promosi**: Menampilkan berbagai paket promosi atau diskon untuk penyewaan peralatan kemah.
+8. **Daftar Transaksi**: Menampilkan riwayat transaksi, termasuk status order dan pengembalian peralatan yang telah disewa.
+9. **Voucher**: Pengguna dapat memilih dan menggunakan voucher yang tersedia untuk mendapatkan potongan harga.
+
+## Halaman-Halaman yang Tersedia
+Aplikasi ini terdiri dari beberapa halaman utama sebagai berikut:
+
+- **Halaman Depan**: Daftar kategori alat perkemahan.
+- **Rincian Item**: Detail informasi tentang peralatan kemah yang dapat disewa.
+- **Chat**: Fitur untuk berinteraksi dengan admin.
+- **Wishlist**: Menyimpan peralatan pilihan pengguna untuk disewa di kemudian hari.
+- **Keranjang**: Menampilkan item yang telah ditambahkan ke keranjang untuk checkout.
+- **Checkout**: Memproses pembayaran dan menyelesaikan transaksi.
+- **Pembelian Paket**: Menawarkan paket hemat untuk penyewaan alat.
+- **Voucher**: Menampilkan berbagai voucher diskon untuk pengguna.
+- **Pengembalian**: Proses pengembalian peralatan yang telah disewa.
+- **Monitor Pemesanan**: Memantau status penyewaan peralatan.
 
 ## Cara Penggunaan
 Untuk menggunakan aplikasi ini, ikuti langkah-langkah berikut:
@@ -42,3 +59,8 @@ Pastikan Anda telah menginstal Flutter SDK pada sistem Anda. Berikut adalah lang
    ```bash
    flutter run
    ```
+
+## Catatan
+- **Tampilan Aplikasi**: Hanya mencakup tampilan dan interaksi dasar antar halaman.
+- **Fitur Notifikasi**: Belum ada implementasi untuk notifikasi atau pengingat, hanya mencakup tampilan antarmuka.
+- **Desain Aplikasi**: Desain awal aplikasi ini dibuat menggunakan **Figma** sebelum pengembangan dimulai, memastikan pengalaman pengguna yang optimal.
