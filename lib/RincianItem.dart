@@ -179,7 +179,7 @@ class RincianItem extends StatelessWidget {
   // Product Description
   Widget _buildProductDescription() {
     return Text(
-      'Tenda A adalah tenda berkualitas tinggi yang dirancang untuk memberikan kenyamanan maksimal selama berkemah...',
+      'Tenda A adalah tenda berkualitas tinggi yang dirancang untuk memberikan kenyamanan maksimal selama berkemah.',
       style: TextStyle(
         color: Colors.black,
         fontSize: 17,
@@ -213,7 +213,7 @@ class RincianItem extends StatelessWidget {
       children: [
         Text('Review Produk', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         _buildReviewCard('Karina', '⭐️⭐️⭐️⭐️⭐️ (5/5)', '"Tenda A sangat nyaman dan mudah digunakan"'),
-        _buildReviewCard('Iduy', '⭐️⭐️⭐️⭐️⭐️ (5/5)', '"Bagus, sesuai deskripsi"'),
+        _buildReviewCard('Denis', '⭐️⭐️⭐️⭐️⭐️ (5/5)', '"Bagus, sesuai deskripsi"'),
         _buildReviewCard('Jin Woo', '⭐️⭐️⭐️⭐️ (4/5)', '"Tenda A cukup bagus dan mudah dipasang"'),
       ],
     );
