@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class WishlistPage extends StatelessWidget {
+class WishlistPage extends StatefulWidget {
   const WishlistPage({super.key});
+
+  @override
+  _WishlistPageState createState() => _WishlistPageState();
+}
+
+class _WishlistPageState extends State<WishlistPage> {
+  int _selectedIndex = 2; // Set the default index for Wishlist
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +109,18 @@ class WishlistPage extends StatelessWidget {
   Widget buildBottomNavigationBar() {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
+      currentIndex: _selectedIndex, // Set the current selected index
+      onTap: (index) {
+        setState(() {
+          _selectedIndex = index; // Update the selected index
+          // Handle navigation to other pages based on index
+          if (index == 2) {
+            // If Wishlist is selected, do nothing because we're already on WishlistPage
+          } else {
+            // Add navigation to other pages (e.g., Home, Chat, etc.)
+          }
+        });
+      },
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
         BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
