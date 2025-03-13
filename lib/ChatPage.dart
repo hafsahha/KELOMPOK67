@@ -46,17 +46,19 @@ class _ChatPageState extends State<ChatPage> {
           ),
           // Message input field (sticky at bottom)
           Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(50),
-              border: Border.all(width: 1, color: Colors.grey),
-            ),
-            margin: const EdgeInsets.only(bottom: 10),
-            child: Row(
-              children: [
-                // Text input field
-                Expanded(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(50),
+            border: Border.all(width: 1, color: Colors.grey),
+          ),
+          margin: const EdgeInsets.only(bottom: 10),
+          child: Row(
+            children: [
+              // Text input field with full width
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),  // Added padding
                   child: TextField(
                     controller: _controller,
                     decoration: InputDecoration(
@@ -70,37 +72,39 @@ class _ChatPageState extends State<ChatPage> {
                     ),
                   ),
                 ),
-                // Send button
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      // Add message to the list
-                      if (_controller.text.isNotEmpty) {
-                        messages.insert(0, {
-                          'sender': 'You',
-                          'time': '9:42',
-                          'message': _controller.text,
-                        });
-                        _controller.clear(); // Clear input after sending
-                      }
-                    });
-                  },
-                  child: Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFE7A3A3),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.send,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+      // Send button
+      GestureDetector(
+        onTap: () {
+          setState(() {
+            // Add message to the list
+            if (_controller.text.isNotEmpty) {
+              messages.insert(0, {
+                'sender': 'You',
+                'time': '9:42',
+                'message': _controller.text,
+              });
+              _controller.clear(); // Clear input after sending
+            }
+          });
+        },
+        child: Container(
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            color: Color(0xFFE7A3A3),
+            shape: BoxShape.circle,
           ),
+          child: const Icon(
+            Icons.send,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
         ],
       ),
     );
