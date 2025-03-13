@@ -9,7 +9,7 @@ class RincianItem extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Rincian Item"),
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Stack(
         children: [
@@ -64,9 +64,9 @@ class RincianItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildFooterButton('Chat'),
-                  _buildFooterButton('Add to Cart'),
-                  _buildFooterButton('Checkout'),
+                  _buildFooterButton(Icons.chat, 'Chat'),
+                  _buildFooterButton(Icons.shopping_cart, 'Add to Cart'),
+                  _buildFooterButton(Icons.check, 'Beli Sekarang'),
                 ],
               ),
             ),
@@ -244,38 +244,33 @@ class RincianItem extends StatelessWidget {
     );
   }
 
-  // Footer Actions - Buttons
-  Widget _buildFooterActions() {
-    return Container(
-      color: Color(0xFFF4F4F4),
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildFooterButton('Chat'),
-          _buildFooterButton('Add to Cart'),
-          _buildFooterButton('Checkout'),
-        ],
-      ),
-    );
-  }
-
-  // Footer Button Widget
-  Widget _buildFooterButton(String label) {
-    return Container(
-      width: 97.50,
-      height: 70,
-      color: Color(0xFFFFD8D8),
-      child: Center(
-        child: Text(
-          label,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 17,
-            fontWeight: FontWeight.w400,
-          ),
+  // Footer Button Widget for Chat, Cart, Checkout
+  Widget _buildFooterButton(IconData icon, String label) {
+    return ElevatedButton(
+        onPressed: () {
+        // Implement action for button
+        },
+        style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFFF5B3B3), // Pink color for button
+        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
         ),
-      ),
+        ),
+        child: Row(
+        children: [
+            Icon(
+            icon,
+            color: Colors.black,
+            size: 20,
+            ),
+            SizedBox(width: 8),
+            Text(
+            label,
+            style: TextStyle(color: Colors.black, fontSize: 16),
+            ),
+        ],
+        ),
     );
-  }
+    }
 }
