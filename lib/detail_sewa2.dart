@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
-class DetailPenyewaan extends StatelessWidget {
-  const DetailPenyewaan({super.key});
+class DetailSewa2Screen extends StatefulWidget {
+  const DetailSewa2Screen({super.key});
+  @override
+  State<DetailSewa2Screen> createState() => _DetailSewa2ScreenState();
+}
 
+class _DetailSewa2ScreenState extends State<DetailSewa2Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,25 +34,30 @@ class DetailPenyewaan extends StatelessWidget {
               _buildStatusTracking('Barang Siap Diambil', '00:00 XX/XX/XX'),
               _buildStatusTracking('Barang Telah Diambil', '00:00 XX/XX/XX'),
               _buildStatusTracking('Pengajuan Pengambilan', '00:00 XX/XX/XX'),
-              _buildStatusTracking('Pengembalian Terkonfirmasi', '00:00 XX/XX/XX'),
 
               const SizedBox(height: 20),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        width: double.infinity, // Ensures it stretches across the screen width
-        height: 70, // Height of the footer
-        color: Color(0xFFE7A3A3), // Background color for the footer
-        child: Center(
-          child: Text(
-            'Penyewaan Telah Selesai',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
+      bottomNavigationBar: InkWell(
+        onTap: () {
+          // Implement the functionality for the button
+          print('Ajukan Pengembalian clicked');
+        },
+        child: Container(
+          width: double.infinity, // Ensures it stretches across the screen width
+          height: 70, // Height of the footer
+          color: Color(0xFFE7A3A3), // Background color for the footer
+          child: Center(
+            child: Text(
+              'Ajukan Pengembalian',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
         ),
@@ -124,4 +133,3 @@ class DetailPenyewaan extends StatelessWidget {
     );
   }
 }
-

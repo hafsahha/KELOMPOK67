@@ -1,35 +1,37 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
-class WishlistPage extends StatefulWidget {
-  const WishlistPage({super.key});
-
+class WishlistScreen extends StatefulWidget {
+  WishlistScreen({super.key});
   @override
-  _WishlistPageState createState() => _WishlistPageState();
+  State<WishlistScreen> createState() => _WishlistScreenState();
 }
 
-class _WishlistPageState extends State<WishlistPage> {
-  int _selectedIndex = 2; // Set the default index for Wishlist
+class _WishlistScreenState extends State<WishlistScreen> {
+  final _selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Wishlist"),
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-      ),
       body: Column(
         children: [
-          // Centered wishlist items list
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                SizedBox(height: 30),
+                Align(alignment: Alignment.centerLeft, child: Text('Wishlist', style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold))),
+                SizedBox(height: 20),
+              ],
+            ),
+          ),
           Expanded(
             child: SingleChildScrollView(
               child: Center(
                 child: Container(
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16),
                   child: Wrap(
                     spacing: 16.0, // Horizontal space between items
-                    runSpacing: 16.0, // Vertical space between items
                     children: [
                       _buildWishlistItem('Tenda A', 'Rp 60.000 / Hari', 'Tenda A Description', 'Tenda A Image'),
                       _buildWishlistItem('Sepatu', 'Rp 30.000 / Hari', 'Sepatu Description', 'Sepatu Image'),
@@ -47,7 +49,7 @@ class _WishlistPageState extends State<WishlistPage> {
           ),
         ],
       ),
-      bottomNavigationBar: buildBottomNavigationBar(),
+      bottomNavigationBar: mainNavbar(context, _selectedIndex),
     );
   }
 
@@ -55,7 +57,7 @@ class _WishlistPageState extends State<WishlistPage> {
     return Container(
       width: 167, // Fixed width
       height: 228, // Fixed height
-      margin: const EdgeInsets.only(bottom: 20),
+      margin: EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -75,10 +77,10 @@ class _WishlistPageState extends State<WishlistPage> {
               child: Icon(Icons.image, color: Colors.white, size: 50),
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           // Title
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               title,
               style: TextStyle(
@@ -88,10 +90,10 @@ class _WishlistPageState extends State<WishlistPage> {
               ),
             ),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           // Price
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               price,
               style: TextStyle(
@@ -103,31 +105,6 @@ class _WishlistPageState extends State<WishlistPage> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      currentIndex: _selectedIndex, // Set the current selected index
-      onTap: (index) {
-        setState(() {
-          _selectedIndex = index; // Update the selected index
-          // Handle navigation to other pages based on index
-          if (index == 2) {
-            // If Wishlist is selected, do nothing because we're already on WishlistPage
-          } else {
-            // Add navigation to other pages (e.g., Home, Chat, etc.)
-          }
-        });
-      },
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Wishlist'),
-        BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'Transaksi'),
-        BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Cart'),
-      ],
     );
   }
 }

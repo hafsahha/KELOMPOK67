@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'checkout.dart';
 
-class VoucherPage extends StatefulWidget {
-  const VoucherPage({super.key});
+class VoucherScreen extends StatefulWidget {
+  const VoucherScreen({super.key});
 
   @override
-  _VoucherPageState createState() => _VoucherPageState();
+  State<VoucherScreen> createState() => _VoucherScreenState();
 }
 
-class _VoucherPageState extends State<VoucherPage> {
-  // Declare a variable to store the selected voucher
+class _VoucherScreenState extends State<VoucherScreen> {
   String? selectedVoucher;
 
-  // Function to update the selected voucher
   void _onVoucherSelected(String? value) {
     setState(() {
       selectedVoucher = value;
@@ -21,11 +20,22 @@ class _VoucherPageState extends State<VoucherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Voucher"),
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(85.0),
+        child: AppBar(
+          title: Padding(padding: EdgeInsets.only(top: 35.0), child: Text("Voucher", style: TextStyle(fontWeight: FontWeight.bold))),
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+          elevation: 0,
+          centerTitle: true,
+          leading: Padding(
+            padding: EdgeInsets.only(top: 25),
+            child: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () { Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CheckoutScreen(),)); },
+            ),
+          ),
+        ),
       ),
       body: Column(
         children: [

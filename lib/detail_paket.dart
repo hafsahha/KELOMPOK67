@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
 
-class DetailPaket extends StatelessWidget {
-  const DetailPaket({super.key});
+class DetailPaketScreen extends StatefulWidget {
+  const DetailPaketScreen({super.key});
+  @override
+  State<DetailPaketScreen> createState() => _DetailPaketScreenState();
+}
 
+class _DetailPaketScreenState extends State<DetailPaketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Detail Paket"),
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(85.0),
+        child: AppBar(
+          title: Padding(padding: EdgeInsets.only(top: 35.0), child: Text("Detail Paket", style: TextStyle(fontWeight: FontWeight.bold))),
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+          elevation: 0,
+          centerTitle: true,
+          leading: Padding(
+            padding: EdgeInsets.only(top: 25),
+            child: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () { Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(),)); },
+            ),
+          ),
+        ),
       ),
       body: Stack(
         children: [
@@ -19,12 +36,19 @@ class DetailPaket extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Product Title
-                  _buildProductTitle(),
+                  Text('Paket Hemat 1', style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 10),
 
-                  // Product Image Row (Scrollable)
-                  _buildProductImageRow(),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _buildProductImage(),
+                        _buildProductImage(),
+                        _buildProductImage(),
+                      ],
+                    ),
+                  ),
                   const SizedBox(height: 20),
 
                   // Price, Rating, and Heart Icon
@@ -40,18 +64,15 @@ class DetailPaket extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   // Features List
-                  _buildFitur(),
+                  _buildFeatures(),
                   const SizedBox(height: 20),
-                  
+
+                  // Isi Paket
                   _buildIsiPaket(),
                   const SizedBox(height: 20),
 
                   // Review Section
                   _buildReviewSection(),
-                  const SizedBox(height: 20),
-
-                  // See All Reviews Button
-                  _buildSeeAllReviews(),
                   const SizedBox(height: 20),
                 ],
               ),
@@ -67,40 +88,13 @@ class DetailPaket extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildFooterButton(Icons.chat, 'Chat'),
-                  _buildFooterButton(Icons.shopping_cart, 'Add to Cart'),
+                  _buildFooterButton(Icons.chat, ''),
+                  _buildFooterButton(Icons.shopping_cart, ''),
                   _buildFooterButton(Icons.check, 'Beli Sekarang'),
                 ],
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  // Product Title
-  Widget _buildProductTitle() {
-    return Text(
-      'Paket Hemat 1',
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 34,
-        fontFamily: 'Inter',
-        fontWeight: FontWeight.w700,
-      ),
-    );
-  }
-
-  // Scrollable Product Images Row
-  Widget _buildProductImageRow() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          _buildProductImage(),
-          _buildProductImage(),
-          _buildProductImage(),
         ],
       ),
     );
@@ -192,7 +186,7 @@ class DetailPaket extends StatelessWidget {
   }
 
   // Fitur
-  Widget _buildFitur() {
+  Widget _buildFeatures() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -240,27 +234,31 @@ class DetailPaket extends StatelessWidget {
     );
   }
 
-  // Review Card Widget
   Widget _buildReviewCard(String name, String rating, String review) {
     return Card(
-      elevation: 4,
+      elevation: 3,
       margin: const EdgeInsets.symmetric(vertical: 10),
-      child: ListTile(
-        title: Text(name),
-        subtitle: Text(rating),
-        trailing: Text(review),
-      ),
-    );
-  }
-
-  // See All Reviews Button
-  Widget _buildSeeAllReviews() {
-    return Text(
-      'Lihat semua',
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 15,
-        fontWeight: FontWeight.w400,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 51, height: 23,
+              child: Text(name, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            ),
+            SizedBox(
+              width: 310, height: 26,
+              child: Text(rating, style: TextStyle(fontSize: 17)),
+            ),
+            SizedBox(
+              width: 310,
+              child: Text(review, style: TextStyle(fontSize: 17)),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -268,30 +266,21 @@ class DetailPaket extends StatelessWidget {
   // Footer Button Widget for Chat, Cart, Checkout
   Widget _buildFooterButton(IconData icon, String label) {
     return ElevatedButton(
-        onPressed: () {
-        // Implement action for button
-        },
+        onPressed: () { },
         style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xFFF5B3B3), // Pink color for button
-        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 24),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-        ),
+          backgroundColor: Color(0xFFF5B3B3),
+          padding: EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
         child: Row(
-        children: [
-            Icon(
-            icon,
-            color: Colors.black,
-            size: 20,
-            ),
-            SizedBox(width: 8),
-            Text(
-            label,
-            style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
-        ],
+          children: [
+              Icon(icon, color: Colors.black, size: 20),
+              if (label.isNotEmpty) ...[
+                SizedBox(width: 8),
+                Text(label, style: TextStyle(color: Colors.black, fontSize: 16))
+              ],
+          ],
         ),
     );
-    }
+  }
 }
